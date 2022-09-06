@@ -1,0 +1,8 @@
+node_modules
+
+.stencil
+.yarn
+
+www
+dist
+

@@ -1,0 +1,61 @@
+{
+    "@comments": {
+        "1": "Please note that when running `yarn docs:root`, the **TYPEDOC** only respects the tsconfig.json at the root, rather the individual tsconfig.json at the package levels.",
+        "2": "All these properties will be inherited by the child packages",
+        "3": "The properties which need to be overwritten in the any individual packages can be changed in that package's tsconfig.json",
+        "4": "'importHelpers: true' is used for optimized builds using tslib",
+        "5": "'isolatedModules is set to 'true' to ensure that our packages can be safely transpiled by single-file transpilation process.",
+        "6": "Many transpilers (including Babel) only operate on a single file at a time.",
+        "7": "Newer INTL options are exposed via ES2020 (https://github.com/microsoft/TypeScript/blob/master/src/lib/es2020.d.ts#L6)",
+        "8": "resolveJsonModule:true so that we can get intellisense while dealing with JSON imports"
+    },
+    "compilerOptions": {
+        "skipLibCheck": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "noImplicitReturns": true,
+        "allowSyntheticDefaultImports": true,
+        "allowUnreachableCode": false,
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "module": "ESNext",
+        "target": "ES6",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "jsx": "react",
+        "jsxFactory": "h",
+        "importHelpers": true,
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ScriptHost",
+            "ES2020"
+        ],
+        "resolveJsonModule": true,
+        "pretty": true,
+        "forceConsistentCasingInFileNames": true,
+        "removeComments": true,
+    },
+    "typedocOptions": {
+        "exclude": [
+            "**/tests",
+            "*.e2e.ts",
+            "*.spec.{ts|tsx}",
+            "**/*.d.ts",
+            "node_modules",
+            "**/samples",
+            "**/demo",
+            "*.spec.tsx",
+            "**/__mocks__",
+            "**/__mock__data"
+        ],
+        "name": "arcgis-web-analysis",
+        "out": "docs",
+        "readme": "./README.md"
+    },
+    "include": [
+        "src"
+    ]
+}
