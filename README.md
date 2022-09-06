@@ -6,5 +6,5 @@ Throughout the repo blocking code has been added to simulate long-running tasks 
 
 ## Current Output
 
-!["Current Output"]('./readme-assets/currentOutput.png')
+![Current Output](./readme-assets/currentOutput.png)
 
