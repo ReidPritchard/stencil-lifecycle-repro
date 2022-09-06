@@ -3,7 +3,7 @@ import { Component, h } from "@stencil/core";
 
 @Component({
   tag: "slot-parent",
-  styleUrl: "slot-parent.css"
+  styleUrl: "slot-parent.css",
 })
 export class SlotParent {
   @Prop({ reflect: true }) searchedFor = "found it?";
@@ -12,12 +12,14 @@ export class SlotParent {
     console.log("slot parent connected callback");
   }
 
-  componentWillLoad() {
+  async componentWillLoad() {
     console.log("slot parent componentWillLoad");
+    return Promise.resolve();
   }
 
-  componentWillRender() {
+  async componentWillRender() {
     console.log("slot parent componentWillRender");
+    return Promise.resolve();
   }
 
   render() {
@@ -30,12 +32,14 @@ export class SlotParent {
     );
   }
 
-  componentDidRender() {
+  async componentDidRender() {
     console.log("slot parent componentDidRender");
+    return Promise.resolve();
   }
 
-  componentDidLoad() {
+  async componentDidLoad() {
     console.log("slot parent componentDidLoad");
+    return Promise.resolve();
   }
 
   disconnectedCallback() {
