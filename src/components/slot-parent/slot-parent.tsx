@@ -6,10 +6,12 @@ import { Component, h } from "@stencil/core";
   styleUrl: "slot-parent.css",
 })
 export class SlotParent {
-  @Prop({ reflect: true }) searchedFor = "found it?";
+  @Prop({ reflect: true }) look = "found it?";
 
   connectedCallback() {
-    console.log("slot parent connected callback");
+    console.log(
+      "slot parent connected callback, look is set on the instance, but not in the dom"
+    );
   }
 
   async componentWillLoad() {
@@ -26,8 +28,10 @@ export class SlotParent {
     console.log("slot parent render");
     return (
       <div>
-        <h1> This is just so the element is visible! </h1>
-        <slot />
+        <h2>Slot Parent</h2>
+        <calcite-combobox>
+          <slot />
+        </calcite-combobox>
       </div>
     );
   }

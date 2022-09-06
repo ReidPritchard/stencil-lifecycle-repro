@@ -9,9 +9,10 @@ export namespace Components {
     interface MyComponent {
     }
     interface SlotChild {
+        "tryToFindProp": () => Promise<void>;
     }
     interface SlotParent {
-        "searchedFor": string;
+        "look": string;
     }
 }
 declare global {
@@ -45,7 +46,7 @@ declare namespace LocalJSX {
     interface SlotChild {
     }
     interface SlotParent {
-        "searchedFor"?: string;
+        "look"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;

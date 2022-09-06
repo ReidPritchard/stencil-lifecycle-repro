@@ -1,4 +1,4 @@
-import { Component, h, Element } from "@stencil/core";
+import { Component, h, Element, Method } from "@stencil/core";
 
 /**
  * Used to get the closest element with a given property.
@@ -6,7 +6,6 @@ import { Component, h, Element } from "@stencil/core";
  * @param el The element to start searching from.
  * @param prop The property to search for.
  * @param fallbackValue The value to return if the property is not found.
- * @returns The value of the property.
  */
 function getElementProp(el: Element, prop: string, fallbackValue: any): any {
   const selector = `[${prop}]`;
@@ -29,41 +28,52 @@ export class SlotChild {
   connectedCallback() {
     console.log("slot child connected callback");
     this.syncDelay(1000);
-    console.log("calling getElementProp");
-    console.log(getElementProp(this.el, "searchFor", "no luck :/"));
-    console.log("done calling getElementProp");
+    this.tryToFindProp();
   }
 
   async componentWillLoad() {
     console.log("slot child componentWillLoad");
+    this.tryToFindProp();
     return Promise.resolve();
   }
 
   async componentWillRender() {
     console.log("slot child componentWillRender");
+    this.tryToFindProp();
     return Promise.resolve();
   }
 
   render() {
     console.log("slot child render");
+    this.tryToFindProp();
     return (
-      <div>
-        <h2> Child Element! </h2>
-      </div>
+      <calcite-combobox-item
+        textLabel="child"
+        value="slot-child"
+      ></calcite-combobox-item>
     );
   }
 
   async componentDidRender() {
     console.log("slot child componentDidRender");
+    this.tryToFindProp();
     return Promise.resolve();
   }
 
   async componentDidLoad() {
     console.log("slot child componentDidLoad");
+    this.tryToFindProp();
     return Promise.resolve();
   }
 
   disconnectedCallback() {
     console.log("slot child disconnected callback");
+    this.tryToFindProp();
+  }
+
+  @Method()
+  async tryToFindProp() {
+    console.log(getElementProp(this.el, "look", "no luck :/"));
+    return Promise.resolve();
   }
 }
